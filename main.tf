@@ -1,6 +1,6 @@
 provider "azurerm" {
   features {}
-  subscription_id = "323379f3-3beb-4865-821e-0fff68e4d4ca"
+  subscription_id = "7d58fd8a-e8be-4f50-b9f6-03616700d9fc"
 }
 
 resource "azurerm_public_ip" "frontend" {
@@ -33,7 +33,7 @@ resource "azurerm_virtual_machine" "frontend" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "frontend-disk"
@@ -66,7 +66,7 @@ resource "azurerm_network_interface" "mongodb" {
 
   ip_configuration {
     name                          = "mongodb"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.mongodb.id
 
@@ -83,7 +83,7 @@ resource "azurerm_virtual_machine" "mongodb" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "mongodb-disk"
@@ -116,7 +116,7 @@ resource "azurerm_network_interface" "catalogue" {
 
   ip_configuration {
     name                          = "catalogue"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.catalogue.id
 
@@ -133,7 +133,7 @@ resource "azurerm_virtual_machine" "catalogue" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "catalogue-disk"
@@ -165,7 +165,7 @@ resource "azurerm_network_interface" "redis" {
 
   ip_configuration {
     name                          = "redis"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.redis.id
 
@@ -182,7 +182,7 @@ resource "azurerm_virtual_machine" "redis" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "redis-disk"
@@ -214,7 +214,7 @@ resource "azurerm_network_interface" "user" {
 
   ip_configuration {
     name                          = "user"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.user.id
 
@@ -231,7 +231,7 @@ resource "azurerm_virtual_machine" "user" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "user-disk"
@@ -264,7 +264,7 @@ resource "azurerm_network_interface" "cart" {
 
   ip_configuration {
     name                          = "cart"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.cart.id
 
@@ -281,7 +281,7 @@ resource "azurerm_virtual_machine" "cart" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "cart-disk"
@@ -313,7 +313,7 @@ resource "azurerm_network_interface" "mysql" {
 
   ip_configuration {
     name                          = "mysql"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.mysql.id
 
@@ -330,7 +330,7 @@ resource "azurerm_virtual_machine" "mysql" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "mysql-disk"
@@ -363,7 +363,7 @@ resource "azurerm_network_interface" "shipping" {
 
   ip_configuration {
     name                          = "shipping"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.shipping.id
 
@@ -380,7 +380,7 @@ resource "azurerm_virtual_machine" "shipping" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "shipping-disk"
@@ -414,7 +414,7 @@ resource "azurerm_network_interface" "rabbitmq" {
 
   ip_configuration {
     name                          = "rabbitmq"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.rabbitmq.id
 
@@ -431,7 +431,7 @@ resource "azurerm_virtual_machine" "rabbitmq" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "rabbitmq-disk"
@@ -464,7 +464,7 @@ resource "azurerm_network_interface" "payment" {
 
   ip_configuration {
     name                          = "payment"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.payment.id
 
@@ -481,7 +481,7 @@ resource "azurerm_virtual_machine" "payment" {
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Compute/images/local-devops-practice"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
   }
   storage_os_disk {
     name              = "payment-disk"
