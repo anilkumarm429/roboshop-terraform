@@ -17,7 +17,7 @@ resource "azurerm_network_interface" "frontend" {
 
   ip_configuration {
     name                          = "frontend"
-    subnet_id                     = "/subscriptions/323379f3-3beb-4865-821e-0fff68e4d4ca/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-setup-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.frontend.id
   }
