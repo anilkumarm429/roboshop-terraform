@@ -27,7 +27,7 @@ resource "azurerm_virtual_machine" "frontend" {
   name                  = "frontend"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.frontend.id"]
+  network_interface_ids = [azurerm_network_interface.frontend.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -77,7 +77,7 @@ resource "azurerm_virtual_machine" "mongodb" {
   name                  = "mongodb"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.mongodb.id"]
+  network_interface_ids = [azurerm_network_interface.mongodb.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -126,7 +126,7 @@ resource "azurerm_virtual_machine" "catalogue" {
   name                  = "catalogue"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.catalogue.id"]
+  network_interface_ids = [azurerm_network_interface.catalogue.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -175,7 +175,7 @@ resource "azurerm_virtual_machine" "redis" {
   name                  = "redis"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.redis.id"]
+  network_interface_ids = [azurerm_network_interface.redis.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -223,7 +223,7 @@ resource "azurerm_virtual_machine" "user" {
   name                  = "user"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.user.id"]
+  network_interface_ids = [azurerm_network_interface.user.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -271,7 +271,7 @@ resource "azurerm_virtual_machine" "cart" {
   name                  = "cart"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.cart.id"]
+  network_interface_ids = [azurerm_network_interface.cart.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -319,7 +319,7 @@ resource "azurerm_virtual_machine" "mysql" {
   name                  = "mysql"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.mysql.id"]
+  network_interface_ids = [azurerm_network_interface.mysql.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -367,7 +367,7 @@ resource "azurerm_virtual_machine" "shipping" {
   name                  = "shipping"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.shipping.id"]
+  network_interface_ids = [azurerm_network_interface.shipping.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -415,7 +415,7 @@ resource "azurerm_virtual_machine" "rabbitmq" {
   name                  = "rabbitmq"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.rabbitmq.id"]
+  network_interface_ids = [azurerm_network_interface.rabbitmq.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -463,7 +463,7 @@ resource "azurerm_virtual_machine" "payment" {
   name                  = "payment"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.payment.id"]
+  network_interface_ids = [azurerm_network_interface.payment.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
@@ -511,7 +511,7 @@ resource "azurerm_virtual_machine" "dispatch" {
   name                  = "dispatch"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = ["azurerm_network_interface.dispatch.id"]
+  network_interface_ids = [azurerm_network_interface.dispatch.id]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
