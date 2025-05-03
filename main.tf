@@ -17,7 +17,7 @@ resource "azurerm_network_interface" "frontend" {
 
   ip_configuration {
     name                          = "frontend"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.frontend.id
   }
@@ -27,13 +27,13 @@ resource "azurerm_virtual_machine" "frontend" {
   name                  = "frontend"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.frontend.id]
+  network_interface_ids = ["azurerm_network_interface.frontend.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "frontend-disk"
@@ -44,12 +44,13 @@ resource "azurerm_virtual_machine" "frontend" {
   os_profile {
     computer_name  = "frontend"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
   }
 }
+
 
 
 resource "azurerm_public_ip" "mongodb" {
@@ -66,10 +67,9 @@ resource "azurerm_network_interface" "mongodb" {
 
   ip_configuration {
     name                          = "mongodb"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.mongodb.id
-
   }
 }
 
@@ -77,13 +77,13 @@ resource "azurerm_virtual_machine" "mongodb" {
   name                  = "mongodb"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.mongodb.id]
+  network_interface_ids = ["azurerm_network_interface.mongodb.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "mongodb-disk"
@@ -94,7 +94,7 @@ resource "azurerm_virtual_machine" "mongodb" {
   os_profile {
     computer_name  = "mongodb"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
@@ -116,10 +116,9 @@ resource "azurerm_network_interface" "catalogue" {
 
   ip_configuration {
     name                          = "catalogue"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.catalogue.id
-
   }
 }
 
@@ -127,13 +126,13 @@ resource "azurerm_virtual_machine" "catalogue" {
   name                  = "catalogue"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.catalogue.id]
+  network_interface_ids = ["azurerm_network_interface.catalogue.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "catalogue-disk"
@@ -144,12 +143,13 @@ resource "azurerm_virtual_machine" "catalogue" {
   os_profile {
     computer_name  = "catalogue"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
   }
 }
+
 
 resource "azurerm_public_ip" "redis" {
   name                = "redis"
@@ -165,10 +165,9 @@ resource "azurerm_network_interface" "redis" {
 
   ip_configuration {
     name                          = "redis"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.redis.id
-
   }
 }
 
@@ -176,13 +175,13 @@ resource "azurerm_virtual_machine" "redis" {
   name                  = "redis"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.redis.id]
+  network_interface_ids = ["azurerm_network_interface.redis.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "redis-disk"
@@ -193,7 +192,7 @@ resource "azurerm_virtual_machine" "redis" {
   os_profile {
     computer_name  = "redis"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
@@ -214,10 +213,9 @@ resource "azurerm_network_interface" "user" {
 
   ip_configuration {
     name                          = "user"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.user.id
-
   }
 }
 
@@ -225,13 +223,13 @@ resource "azurerm_virtual_machine" "user" {
   name                  = "user"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.user.id]
+  network_interface_ids = ["azurerm_network_interface.user.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "user-disk"
@@ -242,13 +240,12 @@ resource "azurerm_virtual_machine" "user" {
   os_profile {
     computer_name  = "user"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
   }
 }
-
 
 resource "azurerm_public_ip" "cart" {
   name                = "cart"
@@ -264,10 +261,9 @@ resource "azurerm_network_interface" "cart" {
 
   ip_configuration {
     name                          = "cart"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.cart.id
-
   }
 }
 
@@ -275,13 +271,13 @@ resource "azurerm_virtual_machine" "cart" {
   name                  = "cart"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.cart.id]
+  network_interface_ids = ["azurerm_network_interface.cart.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "cart-disk"
@@ -292,7 +288,7 @@ resource "azurerm_virtual_machine" "cart" {
   os_profile {
     computer_name  = "cart"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
@@ -313,10 +309,9 @@ resource "azurerm_network_interface" "mysql" {
 
   ip_configuration {
     name                          = "mysql"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.mysql.id
-
   }
 }
 
@@ -324,13 +319,13 @@ resource "azurerm_virtual_machine" "mysql" {
   name                  = "mysql"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.mysql.id]
+  network_interface_ids = ["azurerm_network_interface.mysql.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "mysql-disk"
@@ -341,13 +336,12 @@ resource "azurerm_virtual_machine" "mysql" {
   os_profile {
     computer_name  = "mysql"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
   }
 }
-
 
 resource "azurerm_public_ip" "shipping" {
   name                = "shipping"
@@ -363,10 +357,9 @@ resource "azurerm_network_interface" "shipping" {
 
   ip_configuration {
     name                          = "shipping"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.shipping.id
-
   }
 }
 
@@ -374,13 +367,13 @@ resource "azurerm_virtual_machine" "shipping" {
   name                  = "shipping"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.shipping.id]
+  network_interface_ids = ["azurerm_network_interface.shipping.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "shipping-disk"
@@ -391,14 +384,12 @@ resource "azurerm_virtual_machine" "shipping" {
   os_profile {
     computer_name  = "shipping"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
   }
 }
-
-
 
 resource "azurerm_public_ip" "rabbitmq" {
   name                = "rabbitmq"
@@ -414,10 +405,9 @@ resource "azurerm_network_interface" "rabbitmq" {
 
   ip_configuration {
     name                          = "rabbitmq"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.rabbitmq.id
-
   }
 }
 
@@ -425,13 +415,13 @@ resource "azurerm_virtual_machine" "rabbitmq" {
   name                  = "rabbitmq"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.rabbitmq.id]
+  network_interface_ids = ["azurerm_network_interface.rabbitmq.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "rabbitmq-disk"
@@ -442,13 +432,12 @@ resource "azurerm_virtual_machine" "rabbitmq" {
   os_profile {
     computer_name  = "rabbitmq"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
   }
 }
-
 
 resource "azurerm_public_ip" "payment" {
   name                = "payment"
@@ -464,10 +453,9 @@ resource "azurerm_network_interface" "payment" {
 
   ip_configuration {
     name                          = "payment"
-    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/main/subnets/default"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.payment.id
-
   }
 }
 
@@ -475,13 +463,13 @@ resource "azurerm_virtual_machine" "payment" {
   name                  = "payment"
   location              = "UK West"
   resource_group_name   = "project-1"
-  network_interface_ids = [azurerm_network_interface.payment.id]
+  network_interface_ids = ["azurerm_network_interface.payment.id"]
   vm_size               = "Standard_B2s"
 
   delete_os_disk_on_termination = true
 
   storage_image_reference {
-    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/workstation-image-20250426121452"
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
   }
   storage_os_disk {
     name              = "payment-disk"
@@ -492,13 +480,60 @@ resource "azurerm_virtual_machine" "payment" {
   os_profile {
     computer_name  = "payment"
     admin_username = "azuser"
-    admin_password = "DevOps@123456"
+    admin_password = "Devops@12345"
   }
   os_profile_linux_config {
     disable_password_authentication = false
   }
 }
 
+resource "azurerm_public_ip" "dispatch" {
+  name                = "dispatch"
+  location            = "UK West"
+  resource_group_name = "project-1"
+  allocation_method   = "Static"
+}
+
+resource "azurerm_network_interface" "dispatch" {
+  name                = "dispatch"
+  location            = "UK West"
+  resource_group_name = "project-1"
+
+  ip_configuration {
+    name                          = "dispatch"
+    subnet_id                     = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.dispatch.id
+  }
+}
+
+resource "azurerm_virtual_machine" "dispatch" {
+  name                  = "dispatch"
+  location              = "UK West"
+  resource_group_name   = "project-1"
+  network_interface_ids = ["azurerm_network_interface.dispatch.id"]
+  vm_size               = "Standard_B2s"
+
+  delete_os_disk_on_termination = true
+
+  storage_image_reference {
+    id = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
+  }
+  storage_os_disk {
+    name              = "dispatch-disk"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
+  os_profile {
+    computer_name  = "dispatch"
+    admin_username = "azuser"
+    admin_password = "Devops@12345"
+  }
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
+}
 
 resource "azurerm_dns_a_record" "frontend" {
   name                = "frontend-dev"
@@ -586,9 +621,11 @@ resource "azurerm_dns_a_record" "payment" {
   records             = [azurerm_network_interface.payment.private_ip_address]
 }
 
-
-
-
-
-
+resource "azurerm_dns_a_record" "dispatch" {
+  name                = "dispatch-dev"
+  zone_name           = "apps11.shop"
+  resource_group_name = "project-1"
+  ttl                 = 3
+  records             = [azurerm_network_interface.dispatch.private_ip_address]
+}
 
