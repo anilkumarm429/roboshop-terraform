@@ -1,0 +1,19 @@
+variable "ip_configuration_subnet_id" {
+  default = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
+}
+
+variable "zone_name" {
+  default = "apps11.shop"
+}
+
+variable "location" {
+  default = "UK West"
+}
+
+variable "rg_name" {
+  default = "project-1"
+}
+
+variable "storage_image_reference_id" {
+  default = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Compute/images/local-devops-practice"
+}
