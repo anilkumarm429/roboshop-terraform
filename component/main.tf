@@ -53,6 +53,9 @@ resource "azurerm_virtual_machine" "vm" {
 }
 
 resource "null_resource" "ansible" {
+  depends_on = [
+    azurerm_virtual_machine.vm
+  ]
   connection {
     type     = "ssh"
     user     = "azuser"
