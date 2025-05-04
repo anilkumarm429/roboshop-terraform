@@ -57,13 +57,14 @@ resource "null_resource" "ansible" {
     type     = "ssh"
     user     = "azuser"
     password = "Devops@12345"
-    host     = azurerm_network_interface.privateip.id
+    host     = azurerm_network_interface.privateip.private_ip_address
   }
 
   provisioner "remote-exec" {
     inline = [
       "sudo dnf install python3.12 python3.12-pip -y",
-      "sudo pip3.12 install ansible"
+      "sudo pip3.12 install ansible",
+      "ansible-pull -i localhost, -U https://github.com/anilkumar429/roboshop-ansible.git roboshop.yml -e app_name=${var.name} -e env=dev"
     ]
   }
 }
