@@ -6,9 +6,10 @@ variable "zone_name" {
   default = "apps11.shop"
 }
 
-variable "location" {
-  default = "UK West"
-}
+#since it is declared in data.tf
+# variable "location" {
+#   default = "UK West"
+# }
 
 variable "rg_name" {
   default = "project-1"

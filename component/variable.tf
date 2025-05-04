@@ -1,5 +1,5 @@
 variable "name" {}
-variable "location" {}
+# variable "location" {}  since it is declared in data.tf
 variable "rg_name" {}
 variable "storage_image_reference_id" {}
 variable "ip_configuration_subnet_id" {}
