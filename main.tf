@@ -50,7 +50,7 @@ module "applications" {
 #   zone_name                  = var.zone_name
 #   network_security_group_id  = var.network_security_group_id
 # }
-#
+
 # module "catalogue" {
 #   source                     = "./component"
 #   ip_configuration_subnet_id = var.ip_configuration_subnet_id
@@ -61,7 +61,7 @@ module "applications" {
 #   zone_name                  = var.zone_name
 #   network_security_group_id  = var.network_security_group_id
 # }
-#
+
 # module "user" {
 #   source                     = "./component"
 #   ip_configuration_subnet_id = var.ip_configuration_subnet_id
