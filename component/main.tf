@@ -18,6 +18,11 @@ resource "azurerm_network_interface" "privateip" {
   }
 }
 
+resource "azurerm_network_interface_security_group_association" "nsg-attach" {
+  network_interface_id      = azurerm_network_interface.privateip.id
+  network_security_group_id = var.network_security_group_id
+}
+
 resource "azurerm_virtual_machine" "vm" {
   name                          = var.name
   location                      = var.location
@@ -44,6 +49,22 @@ resource "azurerm_virtual_machine" "vm" {
 
   os_profile_linux_config {
     disable_password_authentication = false
+  }
+}
+
+resource "null_resource" "ansible" {
+  connection {
+    type     = "ssh"
+    user     = "azuser"
+    password = "Devops@12345"
+    host     = azurerm_network_interface.privateip.id
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo dnf install python3.12 python3.12-pip -y",
+      "sudo pip3.12 install ansible"
+    ]
   }
 }
 

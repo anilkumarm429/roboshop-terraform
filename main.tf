@@ -7,6 +7,7 @@ module "frontend" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 
 module "mongodb" {
@@ -17,6 +18,7 @@ module "mongodb" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 
 module "catalogue" {
@@ -27,6 +29,7 @@ module "catalogue" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 
 module "user" {
@@ -37,6 +40,7 @@ module "user" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 
 module "redis" {
@@ -47,6 +51,7 @@ module "redis" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 module "cart" {
   source                     = "./component"
@@ -56,6 +61,7 @@ module "cart" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 module "mysql" {
   source                     = "./component"
@@ -65,6 +71,7 @@ module "mysql" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 module "shipping" {
   source                     = "./component"
@@ -74,6 +81,7 @@ module "shipping" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 module "payment" {
   source                     = "./component"
@@ -83,6 +91,7 @@ module "payment" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 module "rabbitmq" {
   source                     = "./component"
@@ -92,6 +101,7 @@ module "rabbitmq" {
   rg_name                    = var.rg_name
   storage_image_reference_id = var.storage_image_reference_id
   zone_name                  = var.zone_name
+  network_security_group_id  = var.network_security_group_id
 }
 
 
