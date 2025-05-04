@@ -10,6 +10,12 @@ resource "azurerm_public_ip" "frontend" {
   allocation_method   = "Static"
 }
 
+data "azurerm_network_security_group" "project_allow_all" {
+  name                = "project-allow-all"
+  resource_group_name = "project-1"
+}
+
+
 resource "azurerm_network_interface" "frontend" {
   name                = "frontend"
   location            = "UK West"
@@ -22,6 +28,12 @@ resource "azurerm_network_interface" "frontend" {
     public_ip_address_id          = azurerm_public_ip.frontend.id
   }
 }
+
+resource "azurerm_network_interface_security_group_association" "frontend_nsg_assoc" {
+  network_interface_id      = azurerm_network_interface.frontend.id
+  network_security_group_id = data.azurerm_network_security_group.project_allow_all.id
+}
+
 
 resource "azurerm_virtual_machine" "frontend" {
   name                  = "frontend"
