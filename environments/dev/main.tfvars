@@ -33,6 +33,6 @@ applications= {
 
 rg_name       = {
     main = {
-        rg_location   = "UK West"
+        location   = "UK West"
     }
 }
