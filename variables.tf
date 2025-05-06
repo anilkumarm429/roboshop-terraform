@@ -1,3 +1,44 @@
+
+variable "ip_configuration_subnet_id" {}
+variable "zone_name" {}
+variable "storage_image_reference_id" {}
+variable "network_security_group_id" {}
+variable "databases" {}
+variable "applications" {}
+variable "rg_name" {}
+variable "env" {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # variable "ip_configuration_subnet_id" {
 #   default = "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
 # }
@@ -43,5 +84,5 @@
 #   }
 # }
 
-variable "rg_name" {}
-variable "rg_location" {}
+# variable "rg_name" {}
+# variable "rg_location" {}
