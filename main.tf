@@ -17,7 +17,9 @@ module "databases" {
   network_security_group_id  = var.network_security_group_id
 }
 
-
+output "rg" {
+  value = "module.resource-group"
+}
 
 # module "databases" {
 #   for_each                   = var.databases
