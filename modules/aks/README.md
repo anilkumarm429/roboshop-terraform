@@ -19,3 +19,5 @@ get cluster inform from your workstation
 https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
 
+az aks get-credentials --name main-dev --resource-group ukwest-dev
+
