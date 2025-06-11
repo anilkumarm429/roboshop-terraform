@@ -12,3 +12,9 @@ provider "vault" {
   address = "http://vault.apps11.shop:8200"
   token = var.token
 }
+
+provider "helm" {
+  kubernetes {
+    config_path = "~/.kube/config"
+  }
+}
