@@ -4,6 +4,10 @@ resource "null_resource" "kubeconfig" {
     azurerm_kubernetes_cluster.main
   ]
 
+  # provisioner "local-exec" {
+  #   command = "az aks get-credentials --name ${var.name} --resource-group ${var.rg_name} --overwrite-existing"
+  # }
+
   provisioner "local-exec" {
     command = <<EOF
 az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
@@ -11,6 +15,8 @@ az aks get-credentials --name ${var.name} --resource-group ${var.rg_name} --over
 EOF
   }
 }
+
+
 
 resource "helm_release" "external-secrets" {
   depends_on = [
