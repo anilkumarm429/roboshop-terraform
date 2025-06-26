@@ -16,8 +16,6 @@ EOF
   }
 }
 
-
-
 resource "helm_release" "external-secrets" {
   depends_on = [
     null_resource.kubeconfig
