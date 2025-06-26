@@ -4,6 +4,9 @@ resource "null_resource" "kubeconfig" {
     azurerm_kubernetes_cluster.main
   ]
 
+  triggers = {
+    time = timestamp()
+  }
 
   provisioner "local-exec" {
     command = <<EOF
