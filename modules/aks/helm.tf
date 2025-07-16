@@ -16,23 +16,23 @@ EOF
   }
 }
 
-# resource "helm_release" "external-secrets" {
-#   depends_on = [
-#     null_resource.kubeconfig
-#   ]
+resource "helm_release" "external-secrets" {
+  depends_on = [
+    null_resource.kubeconfig
+  ]
 
-#   name             = "external-secrets"
-#   repository       = "https://charts.external-secrets.io"
-#   chart            = "external-secrets"
-#   namespace        = "devops"
-#   create_namespace = true
-#   set = [
-#     {
-#       name  = "installCRDs"
-#       value = "true"
-#     }
-#   ]
-# }
+  name             = "external-secrets"
+  repository       = "https://charts.external-secrets.io"
+  chart            = "external-secrets"
+  namespace        = "devops"
+  create_namespace = true
+  set = [
+    {
+      name  = "installCRDs"
+      value = "true"
+    }
+  ]
+}
 
 # resource "null_resource" "external-secrets-secret-store" {
 #   depends_on = [
