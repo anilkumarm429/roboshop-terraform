@@ -24,7 +24,7 @@ jobs:
           export ARM_CLIENT_SECRET="${{ env.ARM_CLIENT_SECRET }}"
           export ARM_TENANT_ID="${{ env.ARM_TENANT_ID }}"
           export ARM_SUBSCRIPTION_ID="${{ env.ARM_SUBSCRIPTION_ID }}"
-#          az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
-#          az aks get-credentials --name main-dev --resource-group ukwest-dev --overwrite-existing
+          az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
+          az aks get-credentials --name main-dev --resource-group ukwest-dev --overwrite-existing
           make dev-apply token=${vault_token}
 
