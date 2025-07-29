@@ -54,13 +54,13 @@ aks = {
         rgname = "ukwest"
         default_node_pool = {
             nodes   = 1
-            vm_size = "Standard_B2as_v2"
+            vm_size = "Standard_D3_v2"
         }
         app_node_pool = {
             one = {
                 max_count            = 10
                 min_count            = 3
-                vm_size              = "Standard_B2as_v2"
+                vm_size              = "Standard_D3_v2"
                 auto_scaling_enabled = true
                 node_labels = {
                     "project/name" = "roboshop"
