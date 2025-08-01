@@ -10,17 +10,20 @@ network_security_group_id= "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/
 databases= {
     mongodb  = {
         rgname = "ukwest"
+        vnet_prefix   = "main"
+        subnet        = "main"
+        vm_size       = "Standard_B2s"
     }
-    rabbitmq = {
-        rgname = "ukwest"
-    }
-    mysql    = {
-        rgname = "ukwest"
-    }
-    redis    = {
-        rgname = "ukwest"
-    }
-  }
+  #   rabbitmq = {
+  #       rgname = "ukwest"
+  #   }
+  #   mysql    = {
+  #       rgname = "ukwest"
+  #   }
+  #   redis    = {
+  #       rgname = "ukwest"
+  #   }
+  # }
 
 applications= {
     catalogue  = {
@@ -68,5 +71,17 @@ aks = {
             }
         }
 
+    }
+}
+
+vnets = {
+    main-dev = {
+        rgname        = "ukwest"
+        address_space = ["10.50.0.0/24"]
+        subnets = {
+            main = {
+                address_prefixes = ["10.50.0.0/24"]
+            }
+        }
     }
 }
