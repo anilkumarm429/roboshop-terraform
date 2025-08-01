@@ -23,7 +23,7 @@ databases= {
   #   redis    = {
   #       rgname = "ukwest"
   #   }
-  # }
+  }
 
 applications= {
     catalogue  = {
