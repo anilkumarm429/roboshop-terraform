@@ -21,7 +21,6 @@ output "subnet_ids" {
   value = module.vnet["main-dev"].subnet_id["main"].address_prefixes
 }
 
-
 module "databases" {
   for_each                   = var.databases
   source                     = "./modules/vm"
