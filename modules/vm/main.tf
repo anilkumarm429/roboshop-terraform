@@ -47,7 +47,7 @@ resource "azurerm_virtual_machine" "vm" {
   location                      = var.rg_location
   resource_group_name           = var.rg_name
   network_interface_ids         = [azurerm_network_interface.privateip.id]
-  vm_size                       = "Standard_B2s"
+  vm_size                       = var.vm_size
   delete_os_disk_on_termination = true
 
   storage_image_reference {
