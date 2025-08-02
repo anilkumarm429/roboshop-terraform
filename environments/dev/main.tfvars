@@ -69,6 +69,7 @@ rg_name       = {
 aks = {
     main-dev = {
         rgname = "ukwest"
+        vnet_prefix = "main"
         default_node_pool = {
             nodes   = 1
             vm_size = "Standard_D4as_v5"
