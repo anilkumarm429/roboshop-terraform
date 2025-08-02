@@ -8,3 +8,6 @@ variable "token" {}
 variable "type" {}
 variable "ip_configuration_subnet_id" {}
 variable "vm_size" {}
+variable "bastion_nodes" {}
+variable "port" {}
+variable "subnet_cidr" {}

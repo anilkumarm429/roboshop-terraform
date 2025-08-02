@@ -24,14 +24,38 @@ resource "azurerm_network_security_group" "main" {
   resource_group_name = var.rg_name
 
   security_rule {
-    name                       = "test123"
+    name                       = "default-deny"
+    priority                   = 1000
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "ssh"
     priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "*"
+    destination_port_range     = "22"
+    source_address_prefixes    = var.bastion_nodes
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "var.name"
+    priority                   = 101
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = var.port
+    source_address_prefixes    = var.subnet_cidr
     destination_address_prefix = "*"
   }
 }
