@@ -21,6 +21,14 @@ output "subnet_ids" {
   value = module.vnet["main-dev"].subnet["main"]
 }
 
+module "disk_encryption_set" {
+  for_each            = var.des_keys
+  source              = "./modules/des"
+  location            = module.resource-group[each.value["rgname"]].location
+  name                = each.key
+  resource_group_name = module.resource-group[each.value["rgname"]].name
+}
+
 module "databases" {
   for_each                   = var.databases
   source                     = "./modules/vm"
