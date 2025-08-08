@@ -1,6 +1,4 @@
 env = "dev"
-
-
 dns_record_rg_name      = "project-1"
 ip_configuration_subnet_id= "/subscriptions/7d58fd8a-e8be-4f50-b9f6-03616700d9fc/resourceGroups/project-1/providers/Microsoft.Network/virtualNetworks/project-1-network/subnets/default"
 zone_name = "apps11.shop"
@@ -16,27 +14,27 @@ databases= {
         vm_size       = "Standard_B2s"
         port          = 27017
     }
-    rabbitmq = {
-        rgname = "ukwest"
-        vnet_prefix = "main"
-        subnet      = "main"
-        vm_size     = "Standard_B2s"
-        port        = 5672
-    }
-    mysql    = {
-        rgname = "ukwest"
-        vnet_prefix = "main"
-        subnet      = "main"
-        vm_size     = "Standard_B2s"
-        port        = 3306
-    }
-    redis    = {
-        rgname = "ukwest"
-        vnet_prefix = "main"
-        subnet      = "main"
-        vm_size     = "Standard_B2s"
-        port        = 6379
-    }
+    # rabbitmq = {
+    #     rgname = "ukwest"
+    #     vnet_prefix = "main"
+    #     subnet      = "main"
+    #     vm_size     = "Standard_B2s"
+    #     port        = 5672
+    # }
+    # mysql    = {
+    #     rgname = "ukwest"
+    #     vnet_prefix = "main"
+    #     subnet      = "main"
+    #     vm_size     = "Standard_B2s"
+    #     port        = 3306
+    # }
+    # redis    = {
+    #     rgname = "ukwest"
+    #     vnet_prefix = "main"
+    #     subnet      = "main"
+    #     vm_size     = "Standard_B2s"
+    #     port        = 6379
+    # }
   }
 
 applications= {
