@@ -103,7 +103,7 @@ vnets = {
 bastion_nodes = ["10.0.0.101", "10.0.0.11"]
 
 des_keys = {
-  devopsb84 = {
+  devopsb84-tf1 = {
     rgname = "ukwest"
   }
 }
