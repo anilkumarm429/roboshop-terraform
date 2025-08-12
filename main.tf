@@ -45,7 +45,7 @@ module "databases" {
   vm_size                    = each.value["vm_size"]
   bastion_nodes              = var.bastion_nodes
   port                       = each.value["port"]
-  disk_encryption_set_id     = module.disk_encryption_set["devopsb84"].des_id
+  disk_encryption_set_id     = module.disk_encryption_set["devopsb84-tf2"].des_id
 }
 
 # module "applications" {
